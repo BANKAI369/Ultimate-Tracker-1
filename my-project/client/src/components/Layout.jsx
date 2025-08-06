@@ -12,10 +12,8 @@ const Layout = () => {
   return (
     <div>
       {showTopbar && <Topbar />}
-      <Home />
-      <div>
-        <Outlet/>
-      </div>
+      {/* <Home /> */}
+      <Outlet />
     </div>
   )
 }

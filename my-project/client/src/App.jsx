@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import './App.css'
 
@@ -25,6 +25,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout/>} >
+            <Route index element={<Navigate to="/home" replace />} />
             <Route path='login' element={<Login />} />
             <Route path='signup' element={<SignUp />} />
             <Route path='home' element={<Home />} />
