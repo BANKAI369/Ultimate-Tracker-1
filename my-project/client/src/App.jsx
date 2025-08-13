@@ -14,6 +14,8 @@ import SignUp from './pages/SignUp'
 import Settings from './pages/Settings'
 import HabitsTracker from './pages/HabitsTracker'
 import Reminders from './pages/Reminders'
+import Periods from './pages/Periods'
+import MoneyTacker from './pages/MoneyTacker'
 import { ThemeProvider } from './context/ThemeContext'
 
 function App() {
@@ -30,11 +32,13 @@ function App() {
             <Route path='signup' element={<SignUp />} />
             <Route path='home' element={<Home />} />
             <Route path='HabitsTracker' element={<HabitsTracker />} />
+            <Route path='MoneyTacker' element={<MoneyTacker />} />
             <Route path='reminders' element={<Reminders />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='about' element={<About />} />
             <Route path='contact' element={<Contact />} />
             <Route path='settings' element={<Settings />} />
+            <Route path='periods' element={<Periods />} />
           </Route>
         </Routes>
       </BrowserRouter>
