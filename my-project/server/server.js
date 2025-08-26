@@ -3,14 +3,34 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+import connectDB from './config/db.js';
+
+import userRoutes from './routes/userRoutes.js';
+import expenseRoutes from './models/Expenses.js';
+import reminderRoutes from './models/Reminder.js';
+import habitRoutes from './routes/habitRoutes.js';
+import periodRoutes  from './models/Period.js';
+
 
 dotenv.config();
+connectDB();
 
 const app = express();
+app.use(express.json());
+app.use(cors());
+
+//api routes
+app.use('/api/users', userRoutes);
+app.use('/api/expenses', expenseRoutes);
+app.use('/api/reminders', reminderRoutes);
+app.use('/api/habits', habitRoutes);
+app.use('/api/periods', periodRoutes);
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use('/api/habits', habitRoutes);
+app.use('/api/periods', periodRoutes);
 
 // MongoDB connection
 mongoose

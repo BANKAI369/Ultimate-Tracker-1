@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
-const axiosInstance = axios.create({
-  baseURL: 'https://api.example.com',// Replace with your API base URL
-  timeout: 10000, // Set a timeout for requests
-  headers: {
-    'Content-Type': 'application/json',
-  },
+const API = axios.create({ baseURL: "http://localhost:5000/api" });
+
+API.interceptors.request.use((req) => {
+  const token = localStorage.getItem("token");
+  if (token) req.headers.Authorization = `Bearer ${token}`;
+  return req;
 });
 
-export default axiosInstance;
+export default API;
